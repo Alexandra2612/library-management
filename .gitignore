@@ -2,4 +2,6 @@
 out/
 .idea/
 *.iml
+target
+build
 
