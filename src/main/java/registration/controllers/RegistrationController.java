@@ -11,6 +11,7 @@ import registration.services.UserService;
 
 public class RegistrationController {
 
+    @FXML
     public Text registrationMessage;
     @FXML
     public PasswordField passwordField;
@@ -23,16 +24,15 @@ public class RegistrationController {
     @FXML
     public TextField phonenumberField;
     public void handleRegisterAction() {
-        //try {
-           /* UserService.addUser(usernameField.getText(), passwordField.getText(),fullnameField.getText(),addressField.getText(),phonenumberField.getText());
-            registrationMessage.setText("Account created successfully!");*/
-           System.out.println(usernameField.getText());
-       /* }  catch(UsernameFieldEmptyException e){
+        try {
+           UserService.addUser(usernameField.getText(), passwordField.getText(),fullnameField.getText(),addressField.getText(),phonenumberField.getText());
+            registrationMessage.setText("Account created successfully!");
+        }  catch(UsernameFieldEmptyException e){
             registrationMessage.setText(e.getMessage());
         } catch(PasswordFieldEmptyException e){
             registrationMessage.setText(e.getMessage());
         }catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
-        }*/
+        }
     }
 }

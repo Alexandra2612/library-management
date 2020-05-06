@@ -1,5 +1,8 @@
 package registration.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class LibrarianUser {
@@ -10,7 +13,9 @@ public class LibrarianUser {
         private String address;
         private String phonenumber;
 
-        public LibrarianUser(String username, String password, String fullname,String address,String phonenumber) {
+       public LibrarianUser(){}
+        public LibrarianUser( String username, String password, String fullname, String address, String phonenumber) {
+
             this.username = username;
             this.password = password;
             this.fullname=fullname;

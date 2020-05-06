@@ -21,9 +21,11 @@ public class UserService {
     private static List<LibrarianUser> users;
 
     public static void loadUsersFromFile() throws IOException {
+
+
         ObjectMapper objectMapper = new ObjectMapper();
 
-        users = objectMapper.readValue(Paths.get("./config/users.json").toFile(), new TypeReference<List<LibrarianUser>>() {
+        users = objectMapper.readValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), new TypeReference<List<LibrarianUser>>() {
         });
     }
 
@@ -53,7 +55,7 @@ public class UserService {
     private static void persistUsers() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("./config/users.json").toFile(), users);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), users);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
