@@ -85,6 +85,11 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </PasswordField>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </center>
