@@ -5,15 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import registration.services.UserService;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        UserService.loadUsersFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
         primaryStage.setTitle("Bun venit!");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
+
     }
 
 
