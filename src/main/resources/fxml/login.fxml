@@ -27,6 +27,6 @@
     <TextField fx:id="UsernameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <Button mnemonicParsing="false" onAction="#login_check" prefHeight="72.0" prefWidth="147.0" text="Autentificare" GridPane.columnIndex="3" GridPane.rowIndex="4" />
    <Button mnemonicParsing="false" onAction="#goBack" text="back" GridPane.columnIndex="3" />
-   <Label fx:id="login_test" prefHeight="61.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+   <Label fx:id="login_test" prefHeight="62.0" prefWidth="186.0" textFill="#ea0808" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 </GridPane>

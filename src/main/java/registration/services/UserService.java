@@ -15,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
@@ -84,12 +85,16 @@ public class UserService {
     }
 
    public static LibrarianUser checkLibrarian(String username, String pass) throws UserDoesNotExist, IncorrectPassword {
-       int result = 1;
+
        for (LibrarianUser user : users) {
            if (Objects.equals(username, user.getUsername()))
              {
-                   return user;
+             if(Objects.equals(encodePassword(username,pass),user.getPassword()))
+
+             return user;
+             else throw new IncorrectPassword();
                }
+
        }
        throw new UserDoesNotExist();
 
