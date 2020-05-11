@@ -1,4 +1,4 @@
-package sample;
+package registration.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +20,16 @@ public class Controller {
        window.setTitle("Register");
        window.setScene(scene2);
        window.show();
+    }
+    @FXML
+    private void handleLoginButton(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        Scene scene=new Scene(root);
+        Stage stage=new Stage();
+
+        stage.setTitle("Login");
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

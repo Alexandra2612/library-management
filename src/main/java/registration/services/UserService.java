@@ -3,7 +3,9 @@ package registration.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import registration.exceptions.CouldNotWriteUsersException;
+import registration.exceptions.IncorrectPassword;
 import registration.exceptions.PasswordFieldEmptyException;
+import registration.exceptions.UserDoesNotExist;
 import registration.exceptions.UsernameAlreadyExistsException;
 import registration.exceptions.UsernameFieldEmptyException;
 import registration.model.LibrarianUser;
@@ -13,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,7 +23,7 @@ public class UserService {
 
     private static List<LibrarianUser> users;
 
-    public static void loadUsersFromFile() throws IOException {
+    public static void loadLibrariansUsersFromFile() throws IOException {
 
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -80,4 +83,21 @@ public class UserService {
         }
         return md;
     }
+
+   public static LibrarianUser checkLibrarian(String username, String pass) throws UserDoesNotExist, IncorrectPassword {
+
+       for (LibrarianUser user : users) {
+           if (Objects.equals(username, user.getUsername()))
+             {
+             if(Objects.equals(encodePassword(username,pass),user.getPassword()))
+
+             return user;
+             else throw new IncorrectPassword();
+               }
+
+       }
+       throw new UserDoesNotExist();
+
+
+   }
 }
