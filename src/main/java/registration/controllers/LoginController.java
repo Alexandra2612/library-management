@@ -9,10 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import registration.exceptions.IncorrectPassword;
+import registration.exceptions.UserDoesNotExist;
+import registration.model.LibrarianUser;
+import registration.services.UserService;
 
 public class LoginController {
 
@@ -23,6 +26,8 @@ public class LoginController {
     private javafx.scene.control.PasswordField PasswordField;
     @FXML
     private TextField UsernameField;
+    @FXML
+    private Label login_test;
 
     @FXML
     private void login_check() {
@@ -40,23 +45,38 @@ public class LoginController {
         window.show();
     }
     @FXML
-    private void login_check(ActionEvent actionEvent) throws IOException {
-        System.out.println("da");
+    private void login_check(ActionEvent actionEvent) throws IOException,  IncorrectPassword {
+
         if(RoleField.getValue()=="Bibliotecar")
         {
-            System.out.println("dap");
+            LibrarianUser lib;
+            try {
+                   lib = UserService.checkLibrarian(UsernameField.getText(), PasswordField.getText());
+                    Parent root;
+                    root = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+
+                    stage.setTitle("Pagina bibliotecar");
+                    stage.setScene(scene);
+                    stage.show();
+
+            }catch (UserDoesNotExist e){
+                login_test.setText(e.getMessage());
+            }
+
+        }
+        if(RoleField.getValue()=="Cititor")
+        {
+
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
             Scene scene=new Scene(root);
             Stage stage=new Stage();
 
-            stage.setTitle("Pagina bibliotecar");
+            stage.setTitle("Pagina cititor");
             stage.setScene(scene);
             stage.show();
-        }
-        else
-        {
-            System.out.println("nup");
         }
 
     }

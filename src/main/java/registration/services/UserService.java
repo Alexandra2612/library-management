@@ -3,7 +3,9 @@ package registration.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import registration.exceptions.CouldNotWriteUsersException;
+import registration.exceptions.IncorrectPassword;
 import registration.exceptions.PasswordFieldEmptyException;
+import registration.exceptions.UserDoesNotExist;
 import registration.exceptions.UsernameAlreadyExistsException;
 import registration.exceptions.UsernameFieldEmptyException;
 import registration.model.LibrarianUser;
@@ -20,7 +22,7 @@ public class UserService {
 
     private static List<LibrarianUser> users;
 
-    public static void loadUsersFromFile() throws IOException {
+    public static void loadLibrariansUsersFromFile() throws IOException {
 
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -80,4 +82,17 @@ public class UserService {
         }
         return md;
     }
+
+   public static LibrarianUser checkLibrarian(String username, String pass) throws UserDoesNotExist, IncorrectPassword {
+       int result = 1;
+       for (LibrarianUser user : users) {
+           if (Objects.equals(username, user.getUsername()))
+             {
+                   return user;
+               }
+       }
+       throw new UserDoesNotExist();
+
+
+   }
 }

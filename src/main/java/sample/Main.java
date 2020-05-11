@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        UserService.loadUsersFromFile();
+        UserService.loadLibrariansUsersFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
         primaryStage.setTitle("Bun venit!");
         primaryStage.setScene(new Scene(root, 500, 500));
