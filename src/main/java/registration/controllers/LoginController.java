@@ -39,5 +39,26 @@ public class LoginController {
         window.setScene(scene2);
         window.show();
     }
+    @FXML
+    private void login_check(ActionEvent actionEvent) throws IOException {
+        System.out.println("da");
+        if(RoleField.getValue()=="Bibliotecar")
+        {
+            System.out.println("dap");
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
+            Scene scene=new Scene(root);
+            Stage stage=new Stage();
+
+            stage.setTitle("Pagina bibliotecar");
+            stage.setScene(scene);
+            stage.show();
+        }
+        else
+        {
+            System.out.println("nup");
+        }
+
+    }
 }
 
