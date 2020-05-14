@@ -9,42 +9,51 @@ import registration.exceptions.UserDoesNotExist;
 import registration.exceptions.UsernameAlreadyExistsException;
 import registration.exceptions.UsernameFieldEmptyException;
 import registration.model.LibrarianUser;
+import registration.model.ReaderUser;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 
 public class UserService {
 
-    private static List<LibrarianUser> users;
+    private static List<LibrarianUser> libUsers;
+    private static List<ReaderUser> readerUsers;
 
-    public static void loadLibrariansUsersFromFile() throws IOException {
-
-
+    public static void loadUsersFromFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        users = objectMapper.readValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), new TypeReference<List<LibrarianUser>>() {
+        libUsers = objectMapper.readValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), new TypeReference<List<LibrarianUser>>() {
+        });
+        readerUsers=objectMapper.readValue(Paths.get("src/main/java/registration/services/config/readers.json").toFile(), new TypeReference<List<ReaderUser>>() {
         });
     }
-
-    public static void addUser(String username, String password, String fullname,String address,String phonenumber) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
+    public static void addLibrarianUser(String username, String password, String fullname, String address, String phonenumber) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
         checkUserFieldIsNotEmpty(username);
         checkPasswordFieldIsNotEmpty(password);
         checkUserDoesNotAlreadyExist(username);
-        users.add(new LibrarianUser(username, encodePassword(username, password), fullname,address,phonenumber));
-        persistUsers();
+        libUsers.add(new LibrarianUser(username, encodePassword(username, password), fullname,address,phonenumber));
+        persistLibrarians();
+    }
+    public static void addReaderUser(String username, String password, String fullname, String address, String phonenumber) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
+        checkUserFieldIsNotEmpty(username);
+        checkPasswordFieldIsNotEmpty(password);
+        checkUserDoesNotAlreadyExist(username);
+        readerUsers.add(new ReaderUser(username, encodePassword(username, password), fullname,address,phonenumber));
+        persistReaders();
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException{
-        for (LibrarianUser user : users) {
+        for (LibrarianUser user : libUsers)
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
-        }
+        for (ReaderUser user : readerUsers)
+            if (Objects.equals(username, user.getUsername()))
+                throw new UsernameAlreadyExistsException(username);
     }
     private static void checkUserFieldIsNotEmpty(String username) throws UsernameFieldEmptyException{
         if(username.equals(""))
@@ -55,15 +64,22 @@ public class UserService {
             throw new PasswordFieldEmptyException();
     }
 
-    private static void persistUsers() {
+    private static void persistLibrarians() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), users);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), libUsers);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
     }
-
+    private static void persistReaders() {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/readers.json").toFile(), readerUsers);
+        } catch (IOException e) {
+            throw new CouldNotWriteUsersException();
+        }
+    }
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
@@ -86,7 +102,7 @@ public class UserService {
 
    public static LibrarianUser checkLibrarian(String username, String pass) throws UserDoesNotExist, IncorrectPassword {
 
-       for (LibrarianUser user : users) {
+       for (LibrarianUser user : libUsers) {
            if (Objects.equals(username, user.getUsername()))
              {
              if(Objects.equals(encodePassword(username,pass),user.getPassword()))

@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Controller {
     @FXML
     private void handleRegistrationButton(ActionEvent event) throws IOException {
-       Parent p=FXMLLoader.load(getClass().getResource("/fxml/registration.fxml"));
+       Parent p=FXMLLoader.load(getClass().getResource("/fxml/librariansregistration.fxml"));
        Scene scene2=new Scene(p,500,500);
        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
        window.setTitle("Register");
