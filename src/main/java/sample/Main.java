@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        UserService.loadLibrariansUsersFromFile();
+        UserService.loadUsersFromFile();
         BookService.loadBooksFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
         primaryStage.setTitle("Bun venit!");

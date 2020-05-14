@@ -17,7 +17,7 @@ import registration.services.UserService;
 
 import java.io.IOException;
 
-public class RegistrationController {
+public class LibrariansRegistrationController {
 
     @FXML
     public Text registrationMessage;
@@ -42,13 +42,9 @@ public class RegistrationController {
     }
     public void handleRegisterAction() {
         try {
-           UserService.addUser(usernameField.getText(), passwordField.getText(),fullnameField.getText(),addressField.getText(),phonenumberField.getText());
+           UserService.addLibrarianUser(usernameField.getText(), passwordField.getText(),fullnameField.getText(),addressField.getText(),phonenumberField.getText());
             registrationMessage.setText("Account created successfully!");
-        }  catch(UsernameFieldEmptyException e){
-            registrationMessage.setText(e.getMessage());
-        } catch(PasswordFieldEmptyException e){
-            registrationMessage.setText(e.getMessage());
-        }catch (UsernameAlreadyExistsException e) {
+        }  catch(UsernameFieldEmptyException | PasswordFieldEmptyException | UsernameAlreadyExistsException e){
             registrationMessage.setText(e.getMessage());
         }
     }
