@@ -1,13 +1,12 @@
 package registration.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import registration.exceptions.PasswordFieldEmptyException;
-import registration.exceptions.UsernameAlreadyExistsException;
-import registration.exceptions.UsernameFieldEmptyException;
-import registration.services.UserService;
+import registration.exceptions.AuthorFieldEmptyException;
+import registration.exceptions.BookAlreadyExistsException;
+import registration.exceptions.TitleFieldEmptyException;
+import registration.services.BookService;
 
 public class AddBooksController {
     @FXML
@@ -21,22 +20,26 @@ public class AddBooksController {
     @FXML
     private Label ErrorField;
 
+
     @FXML
-    private void add_books_check(ActionEvent actionEvent) {
-    }
+    private void add_books_check() {
 
+            try {
 
-    /*@FXML
-    private void add_books_check(ActionEvent actionEvent) {
-        try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(),fullnameField.getText(),addressField.getText(),phonenumberField.getText());
-            registrationMessage.setText("Account created successfully!");
-        }  catch(UsernameFieldEmptyException e){
-            registrationMessage.setText(e.getMessage());
-        } catch(PasswordFieldEmptyException e){
-            registrationMessage.setText(e.getMessage());
-        }catch (UsernameAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
+                BookService.addBook(TitleField.getText(), AuthorField.getText(), Integer.parseInt(DurationField.getText()), Integer.parseInt(PiecesField.getText()));
+                ErrorField.setText("Carte adaugata cu succes!");
+            } catch(java.lang.NumberFormatException ex){
+                ErrorField.setText("Adauga datele numerice");
+            } catch (TitleFieldEmptyException ex) {
+                ErrorField.setText(ex.getMessage());
+            } catch (AuthorFieldEmptyException ex) {
+                ErrorField.setText(ex.getMessage());
+            } catch (BookAlreadyExistsException ex) {
+                ErrorField.setText(ex.getMessage());
+
+            }
         }
-    }*/
-}
+        }
+
+
+

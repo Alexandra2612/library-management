@@ -15,35 +15,35 @@ public class Book {
         this.pieces=pieces;
     }
 
-    private void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    private void setAuthor(String author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
-    private void setDuration(int duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    private void setPieces(int pieces) {
+    public void setPieces(int pieces) {
         this.pieces = pieces;
     }
 
-    private String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    private String getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    private int getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    private int getPieces() {
+    public int getPieces() {
         return pieces;
     }
 

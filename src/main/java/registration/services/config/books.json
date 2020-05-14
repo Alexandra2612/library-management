@@ -1,1 +1,16 @@
-[]
+[ {
+  "title" : "apa",
+  "author" : "aa",
+  "duration" : 15,
+  "pieces" : 7
+}, {
+  "title" : "Ion",
+  "author" : "Rebreanu",
+  "duration" : 14,
+  "pieces" : 7
+}, {
+  "title" : "Povesti magice",
+  "author" : "Creanga",
+  "duration" : 4,
+  "pieces" : 7
+} ]
