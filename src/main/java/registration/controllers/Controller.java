@@ -26,6 +26,7 @@ public class Controller {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         Scene scene=new Scene(root);
         Stage stage=new Stage();
+        //Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();=>poti face asta ca sa nu deschida intr-o fereastra noua
 
         stage.setTitle("Login");
         stage.setScene(scene);

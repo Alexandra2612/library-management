@@ -12,7 +12,7 @@
 
 <GridPane alignment="center" hgap="10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
           minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="registration.controllers.LibrariansRegistrationController">
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="registration.controllers.ReadersRegistrationController">
     <columnConstraints>
         <ColumnConstraints/>
     </columnConstraints>
@@ -36,67 +36,67 @@
                 </rowConstraints>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" GridPane.columnSpan="2"
                       GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS"/>
-                <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <opaqueInsets>
-                    <Insets/>
-                </opaqueInsets>
-                <GridPane.margin>
-                    <Insets right="5.0"/>
-                </GridPane.margin>
+                <TextField fx:id="usernameField2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <GridPane.margin>
+                        <Insets right="5.0"/>
+                    </GridPane.margin>
                 </TextField>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username*:" GridPane.rowIndex="1">
-                <GridPane.margin>
-                    <Insets left="5.0"/>
-                </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password*:" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets left="5.0"/>
-                </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
                 </Text>
-                <TextField fx:id="fullnameField" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                <opaqueInsets>
-                    <Insets/>
-                </opaqueInsets>
-                <GridPane.margin>
-                    <Insets right="5.0"/>
-                </GridPane.margin>
+                <TextField fx:id="fullnameField2" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <GridPane.margin>
+                        <Insets right="5.0"/>
+                    </GridPane.margin>
                 </TextField>
-                <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                <GridPane.margin>
-                    <Insets right="5.0"/>
-                </GridPane.margin>
+                <TextField fx:id="addressField2" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <GridPane.margin>
+                        <Insets right="5.0"/>
+                    </GridPane.margin>
                 </TextField>
-                <TextField fx:id="phonenumberField" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                <GridPane.margin>
-                    <Insets right="5.0"/>
-                </GridPane.margin>
+                <TextField fx:id="phonenumberField2" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <GridPane.margin>
+                        <Insets right="5.0"/>
+                    </GridPane.margin>
                 </TextField>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name:" GridPane.rowIndex="3">
-                <GridPane.margin>
-                    <Insets left="5.0"/>
-                </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" GridPane.rowIndex="4">
-                <GridPane.margin>
-                    <Insets left="5.0"/>
-                </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" GridPane.rowIndex="5">
-                <GridPane.margin>
-                    <Insets left="5.0"/>
-                </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
                 </Text>
-                <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <GridPane.margin>
-                    <Insets right="5.0"/>
-                </GridPane.margin>
+                <PasswordField fx:id="passwordField2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <GridPane.margin>
+                        <Insets right="5.0"/>
+                    </GridPane.margin>
                 </PasswordField>
-                <Button mnemonicParsing="false" onAction="#goBack" text="Back" GridPane.columnIndex="1"
-                        GridPane.halignment="RIGHT">
-                <GridPane.margin>
-                    <Insets right="5.0"/>
-                </GridPane.margin>
+                <Button mnemonicParsing="false" onAction="#goBack" text="Back"
+                        GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                    <GridPane.margin>
+                        <Insets right="5.0"/>
+                    </GridPane.margin>
                 </Button>
             </GridPane>
         </center>
@@ -109,13 +109,13 @@
                 <rowConstraints>
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                 </rowConstraints>
-                <Button mnemonicParsing="false" onAction="#handleRegisterAction" text="Register"
+                <Button mnemonicParsing="false" onAction="#handleReadersRegisterAction" text="Register"
                         GridPane.halignment="LEFT">
-                <GridPane.margin>
-                    <Insets left="5.0"/>
-                </GridPane.margin>
+                    <GridPane.margin>
+                        <Insets left="5.0"/>
+                    </GridPane.margin>
                 </Button>
-                <Text fx:id="registrationMessage" fill="#f81601" strokeType="OUTSIDE" strokeWidth="0.0"
+                <Text fx:id="registrationMessage2" fill="#f81601" strokeType="OUTSIDE" strokeWidth="0.0"
                       GridPane.columnIndex="1" GridPane.halignment="RIGHT"/>
             </GridPane>
         </bottom>

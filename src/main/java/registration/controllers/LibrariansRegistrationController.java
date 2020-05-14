@@ -44,11 +44,7 @@ public class LibrariansRegistrationController {
         try {
            UserService.addLibrarianUser(usernameField.getText(), passwordField.getText(),fullnameField.getText(),addressField.getText(),phonenumberField.getText());
             registrationMessage.setText("Account created successfully!");
-        }  catch(UsernameFieldEmptyException e){
-            registrationMessage.setText(e.getMessage());
-        } catch(PasswordFieldEmptyException e){
-            registrationMessage.setText(e.getMessage());
-        }catch (UsernameAlreadyExistsException e) {
+        }  catch(UsernameFieldEmptyException | PasswordFieldEmptyException | UsernameAlreadyExistsException e){
             registrationMessage.setText(e.getMessage());
         }
     }
