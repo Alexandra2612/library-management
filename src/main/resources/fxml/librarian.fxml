@@ -7,7 +7,7 @@
     <children>
         <Button onAction="#handleReadersRegistrationButton" layoutX="14.0" layoutY="288.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="154.0" text="Creare conturi" />
         <Button layoutX="200.0" layoutY="288.0" mnemonicParsing="false"  onAction="#handleAddBookAction" prefHeight="52.0" prefWidth="147.0" text="Adaugare carte" />
-        <Button layoutX="370.0" layoutY="288.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="181.0" text="Vizualizare date cititori" />
+        <Button onAction="#handleTableViewReadersDataButton" layoutX="370.0" layoutY="288.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="181.0" text="Vizualizare date cititori" />
         <Label fx:id="lista_cartiLabel" layoutX="18.0" prefHeight="271.0" prefWidth="549.0" />
     </children>
 </AnchorPane>
