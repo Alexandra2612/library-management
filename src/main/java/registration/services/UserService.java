@@ -39,6 +39,9 @@ public class UserService {
         libUsers.add(new LibrarianUser(username, encodePassword(username, password), fullname,address,phonenumber));
         persistLibrarians();
     }
+    public List<ReaderUser> getReaderUsers(){
+        return readerUsers;
+    }
     public static void addReaderUser(String username, String password, String fullname, String address, String phonenumber) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
         checkUserFieldIsNotEmpty(username);
         checkPasswordFieldIsNotEmpty(password);
