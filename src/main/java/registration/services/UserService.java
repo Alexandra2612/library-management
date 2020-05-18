@@ -116,7 +116,21 @@ public class UserService {
 
        }
        throw new UserDoesNotExist();
-
-
    }
+    public static ReaderUser checkReaders(String username, String pass) throws UserDoesNotExist, IncorrectPassword {
+
+        for (ReaderUser user : readerUsers) {
+            if (Objects.equals(username, user.getUsername()))
+            {
+                if(Objects.equals(encodePassword(username,pass),user.getPassword()))
+
+                    return user;
+                else throw new IncorrectPassword();
+            }
+
+        }
+        throw new UserDoesNotExist();
+
+
+    }
 }

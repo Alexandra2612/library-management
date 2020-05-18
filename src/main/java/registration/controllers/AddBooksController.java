@@ -1,8 +1,16 @@
 package registration.controllers;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import registration.exceptions.AuthorFieldEmptyException;
 import registration.exceptions.BookAlreadyExistsException;
 import registration.exceptions.TitleFieldEmptyException;
@@ -39,7 +47,17 @@ public class AddBooksController {
 
             }
         }
-        }
+
+    @FXML
+    private void goBack(ActionEvent actionEvent) throws IOException {
+        Parent p = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
+        Scene scene2 = new Scene(p, 500, 500);
+        Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setTitle("Pagina bibliotecar");
+        window.setScene(scene2);
+        window.show();
+    }
+}
 
 
 

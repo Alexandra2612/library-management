@@ -23,14 +23,13 @@ public class Controller {
     }
     @FXML
     private void handleLoginButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        Scene scene=new Scene(root);
-        Stage stage=new Stage();
-        //Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();=>poti face asta ca sa nu deschida intr-o fereastra noua
 
-        stage.setTitle("Login");
-        stage.setScene(scene);
-        stage.show();
+        Parent p= FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        Scene scene0=new Scene(p);
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setTitle("Pagina autentificare");
+        window.setScene(scene0);
+        window.show();
     }
 
 }
