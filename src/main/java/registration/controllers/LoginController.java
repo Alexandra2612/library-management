@@ -16,6 +16,7 @@ import registration.exceptions.IncorrectPassword;
 import registration.exceptions.NoRole;
 import registration.exceptions.UserDoesNotExist;
 import registration.model.LibrarianUser;
+import registration.model.ReaderUser;
 import registration.services.UserService;
 
 public class LoginController {
@@ -64,8 +65,7 @@ public class LoginController {
                     Parent root;
                     root = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
                     Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    //Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();=>poti face asta ca sa nu deschida intr-o fereastra noua
+                    Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
                     stage.setTitle("Pagina bibliotecar");
                     stage.setScene(scene);
                     stage.show();
@@ -78,15 +78,22 @@ public class LoginController {
 
             }
             if (RoleField.getValue() == "Cititor") {
+                    ReaderUser read;
+                    try {
+                        read = UserService.checkReaders(UsernameField.getText(), PasswordField.getText());
+                        Parent root;
+                        root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
+                        Scene scene = new Scene(root);
+                        Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                        stage.setTitle("Pagina cititor");
+                        stage.setScene(scene);
+                        stage.show();
 
-                Parent root;
-                root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                //Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();=>poti face asta ca sa nu deschida intr-o fereastra noua
-                stage.setTitle("Pagina cititor");
-                stage.setScene(scene);
-                stage.show();
+                    } catch (UserDoesNotExist e) {
+                        login_test.setText(e.getMessage());
+                    } catch (IncorrectPassword e) {
+                        login_test.setText(e.getMessage());
+                    }
             }
 
         } catch (NoRole e){
