@@ -8,10 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
-import registration.exceptions.AuthorFieldEmptyException;
-import registration.exceptions.BookAlreadyExistsException;
-import registration.exceptions.CouldNotWriteUsersException;
-import registration.exceptions.TitleFieldEmptyException;
+import registration.exceptions.*;
 import registration.model.Book;
 
 public class BookService {
@@ -32,6 +29,9 @@ public class BookService {
         persistBooks();
     }
 
+    public List<Book> getBooks() {
+        return books;
+    }
 
     private static void checkBookDoesNotAlreadyExist(String title) throws BookAlreadyExistsException{
         for (Book book : books) {
@@ -39,7 +39,21 @@ public class BookService {
                 throw new BookAlreadyExistsException();
         }
     }
+    public static void checkBookExistsAndAvailableInList(String title) throws BookDoesNotExistException, NoBooksAvailableException {
+        int exista=0;
+        int existabucati=0;
+        for (Book book : books)
+            if (Objects.equals(title, book.getTitle())){
+                  exista=1;
+                  if(book.getPieces()>0)
+                      existabucati=1;
+            }
 
+        if(exista==0)
+            throw new BookDoesNotExistException();
+        if(existabucati==0)
+            throw new NoBooksAvailableException();
+    }
 
     private static void checkTitleFieldIsNotEmpty(String title) throws TitleFieldEmptyException{
         if(title.equals(""))

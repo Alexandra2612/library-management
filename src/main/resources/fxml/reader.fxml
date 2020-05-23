@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="registration.controllers.ReaderController">
    <children>
-      <Button layoutX="38.0" layoutY="117.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="216.0" text="Împrumut carte" />
+      <Button onAction="#handleBorrowButton" layoutX="38.0" layoutY="117.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="216.0" text="Împrumut carte" />
       <Button layoutX="333.0" layoutY="117.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="222.0" text="Restituire carte" />
    </children>
 </AnchorPane>
