@@ -28,9 +28,23 @@ public class BookService {
         books.add(new Book(title, author,duration,pieces));
         persistBooks();
     }
-
+    public static void subtractPiece(String title){
+        for (Book book : books) {
+            if (Objects.equals(title, book.getTitle())&&book.getPieces()>0)
+                 book.setPieces(book.getPieces()-1);
+        }
+        persistBooks();
+    }
     public List<Book> getBooks() {
         return books;
+    }
+
+    public static Book getsomeBook(String title){
+        for (Book book : books) {
+            if (Objects.equals(title, book.getTitle()))
+               return book;
+        }
+        return null;
     }
 
     private static void checkBookDoesNotAlreadyExist(String title) throws BookAlreadyExistsException{

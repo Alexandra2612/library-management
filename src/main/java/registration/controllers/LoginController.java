@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import registration.exceptions.IncorrectPassword;
 import registration.exceptions.NoRole;
 import registration.exceptions.UserDoesNotExist;
+import registration.exceptions.UsernameAlreadyExistsException;
 import registration.model.LibrarianUser;
 import registration.model.ReaderUser;
 import registration.services.UserService;
@@ -70,9 +71,7 @@ public class LoginController {
                     stage.setScene(scene);
                     stage.show();
 
-                } catch (UserDoesNotExist e) {
-                    login_test.setText(e.getMessage());
-                } catch (IncorrectPassword e) {
+                } catch (UserDoesNotExist | IncorrectPassword e) {
                     login_test.setText(e.getMessage());
                 }
 
@@ -81,6 +80,7 @@ public class LoginController {
                     ReaderUser read;
                     try {
                         read = UserService.checkReaders(UsernameField.getText(), PasswordField.getText());
+                        UserService.setConectedUser(UsernameField.getText());
                         Parent root;
                         root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
                         Scene scene = new Scene(root);
@@ -89,9 +89,7 @@ public class LoginController {
                         stage.setScene(scene);
                         stage.show();
 
-                    } catch (UserDoesNotExist e) {
-                        login_test.setText(e.getMessage());
-                    } catch (IncorrectPassword e) {
+                    } catch (UserDoesNotExist | IncorrectPassword e) {
                         login_test.setText(e.getMessage());
                     }
             }

@@ -20,6 +20,11 @@ public class ReaderUser {
         this.phonenumber=phonenumber;
         this.listaimprumuturi=new ArrayList<Imprumut>();
     }
+    public void adaugaImprumut(Imprumut i){
+        if(listaimprumuturi==null)
+            listaimprumuturi=new ArrayList<Imprumut>();
+        listaimprumuturi.add(i);
+    }
     public String getUsername() {
         return username;
     }
@@ -60,6 +65,14 @@ public class ReaderUser {
         this.phonenumber = phonenumber;
     }
 
+    public ArrayList<Imprumut> getListaimprumuturi() {
+        return listaimprumuturi;
+    }
+
+    public void setListaimprumuturi(ArrayList<Imprumut> listaimprumuturi) {
+        this.listaimprumuturi = listaimprumuturi;
+    }
+
     @Override
     public String toString() {
         return "ReaderUser{" +
@@ -68,6 +81,7 @@ public class ReaderUser {
                 ", fullname='" + fullname + '\'' +
                 ", address='" + address + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
+                ", listaimprumuturi='" + listaimprumuturi + '\'' +
                 '}';
     }
 }

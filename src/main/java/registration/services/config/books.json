@@ -2,12 +2,12 @@
   "title" : "apa",
   "author" : "aa",
   "duration" : 15,
-  "pieces" : 7
+  "pieces" : 6
 }, {
   "title" : "Ion",
   "author" : "Rebreanu",
   "duration" : 14,
-  "pieces" : 7
+  "pieces" : 4
 }, {
   "title" : "Povesti magice",
   "author" : "Creanga",
@@ -27,5 +27,5 @@
   "title" : "sd",
   "author" : "okj",
   "duration" : 4,
-  "pieces" : 8
+  "pieces" : 7
 } ]

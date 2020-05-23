@@ -8,6 +8,8 @@ import registration.exceptions.PasswordFieldEmptyException;
 import registration.exceptions.UserDoesNotExist;
 import registration.exceptions.UsernameAlreadyExistsException;
 import registration.exceptions.UsernameFieldEmptyException;
+import registration.model.Book;
+import registration.model.Imprumut;
 import registration.model.LibrarianUser;
 import registration.model.ReaderUser;
 
@@ -16,6 +18,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,10 +31,26 @@ public class UserService {
 
     private static List<LibrarianUser> libUsers;
     private static List<ReaderUser> readerUsers;
+    private static String conectedUser;
+
+    public static String getConectedUser() {
+        return conectedUser;
+    }
+    public static ReaderUser getsomeUser(String username){
+        for (ReaderUser user : readerUsers) {
+            if (Objects.equals(username, user.getUsername()))
+                return user;
+        }
+        return null;
+    }
+
+    public static void setConectedUser(String conectedUser) {
+        UserService.conectedUser = conectedUser;
+    }
 
     public static void loadUsersFromFile() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-
+        objectMapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
         libUsers = objectMapper.readValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), new TypeReference<List<LibrarianUser>>() {
         });
         readerUsers=objectMapper.readValue(Paths.get("src/main/java/registration/services/config/readers.json").toFile(), new TypeReference<List<ReaderUser>>() {
@@ -75,9 +99,10 @@ public class UserService {
             throw new CouldNotWriteUsersException();
         }
     }
-    private static void persistReaders() {
+    public static void persistReaders() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/readers.json").toFile(), readerUsers);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
