@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import registration.exceptions.*;
 import registration.model.Book;
+import registration.model.Imprumut;
 
 public class BookService {
     private static List<Book> books;
@@ -53,7 +54,7 @@ public class BookService {
                 throw new BookAlreadyExistsException();
         }
     }
-    public static void checkBookExistsAndAvailableInList(String title) throws BookDoesNotExistException, NoBooksAvailableException {
+    public static void checkBookExistsAvailableAndNotOwnedInList(String title) throws BookDoesNotExistException, NoBooksAvailableException, BookAlreadyBorrowedException {
         int exista=0;
         int existabucati=0;
         for (Book book : books)
@@ -62,7 +63,9 @@ public class BookService {
                   if(book.getPieces()>0)
                       existabucati=1;
             }
-
+        for(Imprumut i:UserService.getsomeUser(UserService.getConectedUser()).getListaimprumuturi())
+            if(Objects.equals(title,i.getBook().getTitle()))
+                throw new BookAlreadyBorrowedException();
         if(exista==0)
             throw new BookDoesNotExistException();
         if(existabucati==0)

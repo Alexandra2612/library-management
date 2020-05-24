@@ -54,9 +54,6 @@
   "address" : "",
   "phonenumber" : "",
   "listaimprumuturi" : [ {
-    "date" : null,
-    "book" : null
-  }, {
     "date" : "24-05-2020",
     "book" : {
       "title" : "apa",
@@ -79,6 +76,77 @@
       "author" : "okj",
       "duration" : 4,
       "pieces" : 8
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : " jv ",
+      "author" : "sd",
+      "duration" : 4,
+      "pieces" : 8
+    }
+  } ]
+}, {
+  "username" : "gheorghe.papa.gheorghe",
+  "password" : "\u000BaFw��w��[��f�D�b@>\\9\u0005�6�4��\u0010D���S��+��\u001B��{�\u0007�T\u0013�Nv�\f�\u0013�-�رe�",
+  "fullname" : "",
+  "address" : "",
+  "phonenumber" : "",
+  "listaimprumuturi" : [ {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Povesti magice",
+      "author" : "Creanga",
+      "duration" : 4,
+      "pieces" : 6
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Robinson Crusoe",
+      "author" : "Daniel Defoe",
+      "duration" : 2,
+      "pieces" : 5
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Robinson Crusoe",
+      "author" : "Daniel Defoe",
+      "duration" : 2,
+      "pieces" : 5
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Robinson Crusoe",
+      "author" : "Daniel Defoe",
+      "duration" : 2,
+      "pieces" : 5
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Robinson Crusoe",
+      "author" : "Daniel Defoe",
+      "duration" : 2,
+      "pieces" : 5
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Robinson Crusoe",
+      "author" : "Daniel Defoe",
+      "duration" : 2,
+      "pieces" : 5
+    }
+  }, {
+    "date" : "24-05-2020",
+    "book" : {
+      "title" : "Robinson Crusoe",
+      "author" : "Daniel Defoe",
+      "duration" : 2,
+      "pieces" : 5
     }
   } ]
 } ]

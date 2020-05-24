@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import registration.exceptions.BookAlreadyBorrowedException;
 import registration.exceptions.BookDoesNotExistException;
 import registration.exceptions.NoBooksAvailableException;
 import registration.model.Book;
@@ -43,7 +44,7 @@ public class TableViewBooksController implements Initializable{
     @FXML
     public void handleBorrowAction() {
         try {
-            BookService.checkBookExistsAndAvailableInList(titleField.getText());
+            BookService.checkBookExistsAvailableAndNotOwnedInList(titleField.getText());
             Book b=BookService.getsomeBook(titleField.getText());
             Imprumut imp=new Imprumut(b);
             ReaderUser ru=UserService.getsomeUser(UserService.getConectedUser());
@@ -51,7 +52,7 @@ public class TableViewBooksController implements Initializable{
             UserService.persistReaders();
             BookService.subtractPiece(titleField.getText());
             borrowMessage.setText("Borrowed successfully!");
-        }  catch(BookDoesNotExistException | NoBooksAvailableException e){
+        }  catch(BookDoesNotExistException | NoBooksAvailableException | BookAlreadyBorrowedException e){
             borrowMessage.setText(e.getMessage());
         }
     }

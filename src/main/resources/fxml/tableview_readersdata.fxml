@@ -10,7 +10,7 @@
    <children>
       <Label layoutX="14.0" layoutY="21.0" prefHeight="43.0" prefWidth="219.0" text="Date cititori" />
       <Button layoutX="496.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" prefHeight="43.0" prefWidth="80.0" text="Back" />
-      <TableView fx:id="tableView" layoutX="14.0" layoutY="78.0" prefHeight="309.0" prefWidth="564.0">
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="78.0" onMouseClicked="#handleViewBorrowedBooks" prefHeight="309.0" prefWidth="564.0">
         <columns>
           <TableColumn fx:id="userNameColumn" prefWidth="131.0" text="Username" />
           <TableColumn fx:id="fullNameColumn" prefWidth="154.0" text="Full Name" />
