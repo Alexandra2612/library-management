@@ -9,7 +9,6 @@ import registration.services.BookService;
 import registration.services.UserService;
 
 public class Main extends Application {
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         UserService.loadUsersFromFile();
@@ -18,7 +17,6 @@ public class Main extends Application {
         primaryStage.setTitle("Bun venit!");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
-
     }
 
 

@@ -1,5 +1,9 @@
 package registration.services;
 
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import registration.exceptions.CouldNotWriteUsersException;
@@ -33,6 +37,9 @@ public class UserService {
     private static List<ReaderUser> readerUsers;
     private static String conectedUser;
 
+    private static final Path LIBRARIANS_PATH = FileSystemService.getPathToFile("config" ,"librarians.json");
+    private static final Path READERS_PATH = FileSystemService.getPathToFile( "config","readers.json");
+
     public static String getConectedUser() {
         return conectedUser;
     }
@@ -49,11 +56,16 @@ public class UserService {
     }
 
     public static void loadUsersFromFile() throws IOException {
+        if (!Files.exists(LIBRARIANS_PATH)||!Files.exists(READERS_PATH)) {
+            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("librarians.json"), LIBRARIANS_PATH.toFile());
+            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("readers.json"), READERS_PATH.toFile());
+        }
+
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
-        libUsers = objectMapper.readValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), new TypeReference<List<LibrarianUser>>() {
+        objectMapper.setDateFormat(new SimpleDateFormat("dd/MM/yyyy"));
+        libUsers = objectMapper.readValue(LIBRARIANS_PATH.toFile(),new TypeReference<List<LibrarianUser>>() {
         });
-        readerUsers=objectMapper.readValue(Paths.get("src/main/java/registration/services/config/readers.json").toFile(), new TypeReference<List<ReaderUser>>() {
+        readerUsers=objectMapper.readValue(READERS_PATH.toFile(),new TypeReference<List<ReaderUser>>() {
         });
     }
     public static void addLibrarianUser(String username, String password, String fullname, String address, String phonenumber) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
@@ -94,7 +106,7 @@ public class UserService {
     private static void persistLibrarians() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/librarians.json").toFile(), libUsers);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(LIBRARIANS_PATH.toFile(), libUsers);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
@@ -102,8 +114,8 @@ public class UserService {
     public static void persistReaders() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.setDateFormat(new SimpleDateFormat("dd-MM-yyyy"));
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/readers.json").toFile(), readerUsers);
+            objectMapper.setDateFormat(new SimpleDateFormat("dd/MM/yyyy"));
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(READERS_PATH.toFile(), readerUsers);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }

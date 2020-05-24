@@ -15,10 +15,11 @@ import javafx.stage.Stage;
 import registration.exceptions.IncorrectPassword;
 import registration.exceptions.NoRole;
 import registration.exceptions.UserDoesNotExist;
-import registration.exceptions.UsernameAlreadyExistsException;
 import registration.model.LibrarianUser;
 import registration.model.ReaderUser;
 import registration.services.UserService;
+
+import javax.jws.soap.SOAPBinding;
 
 public class LoginController {
 
@@ -71,7 +72,9 @@ public class LoginController {
                     stage.setScene(scene);
                     stage.show();
 
-                } catch (UserDoesNotExist | IncorrectPassword e) {
+                } catch (UserDoesNotExist e) {
+                    login_test.setText(e.getMessage());
+                } catch (IncorrectPassword e) {
                     login_test.setText(e.getMessage());
                 }
 
@@ -89,7 +92,9 @@ public class LoginController {
                         stage.setScene(scene);
                         stage.show();
 
-                    } catch (UserDoesNotExist | IncorrectPassword e) {
+                    } catch (UserDoesNotExist e) {
+                        login_test.setText(e.getMessage());
+                    } catch (IncorrectPassword e) {
                         login_test.setText(e.getMessage());
                     }
             }

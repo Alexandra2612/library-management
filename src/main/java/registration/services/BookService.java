@@ -4,10 +4,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.io.FileUtils;
 import registration.exceptions.*;
 import registration.model.Book;
 import registration.model.Imprumut;
@@ -15,9 +18,14 @@ import registration.model.Imprumut;
 public class BookService {
     private static List<Book> books;
 
+    private static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
+
     public static void loadBooksFromFile() throws IOException {
+        if (!Files.exists(BOOKS_PATH)) {
+            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("books.json"), BOOKS_PATH.toFile());
+        }
         ObjectMapper objectMapper = new ObjectMapper();
-        books= objectMapper.readValue(Paths.get("src/main/java/registration/services/config/books.json").toFile(), new TypeReference<List<Book>>() {
+        books= objectMapper.readValue(BOOKS_PATH.toFile(), new TypeReference<List<Book>>() {
         });
     }
     public static void addBook(String title, String author, int duration,int pieces) throws BookAlreadyExistsException, AuthorFieldEmptyException, TitleFieldEmptyException {
@@ -84,7 +92,7 @@ public class BookService {
     private static void persistBooks() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("src/main/java/registration/services/config/books.json").toFile(), books);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(BOOKS_PATH.toFile(), books);
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
