@@ -12,6 +12,16 @@ import java.io.IOException;
 
 public class LibrarianController {
     @FXML
+    private void signOut(ActionEvent event) throws IOException {
+        Parent p= FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+        Scene scene4=new Scene(p,500,500);
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setTitle("Bun venit!");
+        window.setScene(scene4);
+        window.show();
+    }
+
+    @FXML
     private void handleTableViewReadersDataButton(ActionEvent event) throws IOException{
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_readersdata.fxml"));
         Scene scene3=new Scene(p);
