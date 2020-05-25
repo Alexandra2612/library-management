@@ -1,11 +1,17 @@
 package registration.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Book {
+    @JsonProperty("title")
     private String title;
+    @JsonProperty("author")
     private String author;
+    @JsonProperty("duration")
     private int duration;
+    @JsonProperty("pieces")
     private int pieces;
     public Book(){}
     public Book(String title, String author,int duration, int pieces){

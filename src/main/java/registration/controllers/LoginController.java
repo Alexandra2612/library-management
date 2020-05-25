@@ -19,6 +19,8 @@ import registration.model.LibrarianUser;
 import registration.model.ReaderUser;
 import registration.services.UserService;
 
+import javax.jws.soap.SOAPBinding;
+
 public class LoginController {
 
 
@@ -81,6 +83,7 @@ public class LoginController {
                     ReaderUser read;
                     try {
                         read = UserService.checkReaders(UsernameField.getText(), PasswordField.getText());
+                        UserService.setConectedUser(UsernameField.getText());
                         Parent root;
                         root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
                         Scene scene = new Scene(root);

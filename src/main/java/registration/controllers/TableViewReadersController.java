@@ -12,10 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import registration.model.ReaderUser;
 import registration.services.UserService;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -28,6 +28,30 @@ public class TableViewReadersController implements Initializable{
     @FXML private TableColumn<ReaderUser,String> fullNameColumn;
     @FXML private TableColumn<ReaderUser,String> addressColumn;
     @FXML private TableColumn<ReaderUser,String> phoneNumberColumn;
+
+    private static ReaderUser selectedUser;
+
+    public static ReaderUser getSelectedUser() {
+        return selectedUser;
+    }
+
+    @FXML
+    private void handleViewBorrowedBooks(MouseEvent event){
+        if(event.getClickCount()>1)
+        {
+            selectedUser=tableView.getSelectionModel().getSelectedItem();
+            if(selectedUser!=null)
+                try{
+                    Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_borrowdata.fxml"));
+                    Scene scene2=new Scene(p);
+                    Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(scene2);
+                    window.show();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+        }
+    }
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
@@ -56,4 +80,5 @@ public class TableViewReadersController implements Initializable{
               readers.add((ReaderUser) r);
          return readers;
     }
+
 }
