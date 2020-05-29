@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ReaderController {
+
     @FXML
     private void signOut(ActionEvent event) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
@@ -25,6 +26,15 @@ public class ReaderController {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_booksdata.fxml"));
         Scene scene1=new Scene(p);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+
+    @FXML
+    private void handleRefundButton(ActionEvent actionEvent) throws IOException {
+        Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_refund.fxml"));
+        Scene scene1=new Scene(p);
+        Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }

@@ -56,8 +56,10 @@ public class UserService {
     }
 
     public static void loadUsersFromFile() throws IOException {
-        if (!Files.exists(LIBRARIANS_PATH)||!Files.exists(READERS_PATH)) {
+        if (!Files.exists(LIBRARIANS_PATH)) {
             FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("librarians.json"), LIBRARIANS_PATH.toFile());
+        }
+        if(!Files.exists(READERS_PATH)){
             FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("readers.json"), READERS_PATH.toFile());
         }
 
