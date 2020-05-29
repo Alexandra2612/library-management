@@ -14,6 +14,7 @@
             </columns>
         </TableView>
       <Label layoutX="438.0" layoutY="77.0" prefHeight="25.0" prefWidth="138.0" text="Introdu titlul:" />
-      <TextField fx:id="refundField" layoutX="436.0" layoutY="99.0" prefHeight="55.0" prefWidth="138.0" />
+      <TextField fx:id="refundField" layoutX="445.0" layoutY="116.0" prefHeight="55.0" prefWidth="123.0" />
+      <Button layoutX="445.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleRefundaction" prefHeight="43.0" prefWidth="123.0" text="Restituire" />
     </children>
 </AnchorPane>
