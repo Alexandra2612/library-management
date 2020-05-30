@@ -13,10 +13,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
+import registration.exceptions.BookNotOwned;
 import registration.model.Imprumut;
 import registration.model.ReaderUser;
 import registration.services.UserService;
@@ -30,6 +32,9 @@ public class TableviewRefundController implements Initializable {
     private TableView<Imprumut> tableView;
     @FXML private TableColumn<Imprumut,String> dateColumn;
     @FXML private TableColumn<Imprumut,String> bookColumn;
+    @FXML
+    private Label refundMessageField;
+
     @FXML
     private void goBack(ActionEvent actionEvent) {
     }
@@ -65,7 +70,27 @@ public class TableviewRefundController implements Initializable {
 
     @FXML
     private void handleRefundaction(ActionEvent actionEvent) {
+        
+        int ok=0;
+        ReaderUser r;
+        r=UserService.getsomeUser(UserService.getConectedUser());
+        ArrayList<Imprumut> im= r.getListaimprumuturi();
+        for(Imprumut i:im)
+            if((i.getBook().getTitle()).equals(refundField.getText())){
+                ok=1;
+                exceedingtimecheck();
+            }
+       if(ok==0) try {
+            throw new BookNotOwned();
+        } catch (BookNotOwned bookNotOwned) {
+            refundMessageField.setText(bookNotOwned.getMessage())
+;        }
+        
 
 
+    }
+
+    private void exceedingtimecheck() {
+        refundMessageField.setText("ok");
     }
 }
