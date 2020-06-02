@@ -96,6 +96,15 @@ public class TableviewRefundController implements Initializable {
                 if ((i.getBook().getTitle()).equals(refundField.getText())) {
                     ok = 1;
                     exceedingtimecheck(i);
+                    ArrayList<Imprumut> imp = r.getListaimprumuturi();
+                    imp.remove(i);
+                    r.setListaimprumuturi(imp);
+                    tableView.refresh();
+                    UserService.persistReaders();
+                    tableView.refresh();
+                    i.getBook().setPieces(i.getBook().getPieces()+1);
+                    BookService.persistBooks();
+                    refundMessageField.setText("Carte restituita");
 
                 }
         }catch(Exception ignored){}
