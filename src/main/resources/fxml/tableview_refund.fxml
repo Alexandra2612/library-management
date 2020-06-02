@@ -17,5 +17,6 @@
       <TextField fx:id="refundField" layoutX="445.0" layoutY="116.0" prefHeight="55.0" prefWidth="183.0" />
       <Button layoutX="445.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleRefundaction" prefHeight="43.0" prefWidth="183.0" text="Restituire" />
       <Label fx:id="refundMessageField" layoutX="444.0" layoutY="263.0" prefHeight="43.0" prefWidth="183.0" />
+      <Label fx:id="refundMessageField1" layoutX="447.0" layoutY="318.0" prefHeight="55.0" prefWidth="190.0" />
     </children>
 </AnchorPane>
