@@ -89,7 +89,7 @@ public class BookService {
             throw new AuthorFieldEmptyException();
     }
 
-    private static void persistBooks() {
+    public static void persistBooks() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(BOOKS_PATH.toFile(), books);
