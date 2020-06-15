@@ -34,7 +34,7 @@ public class ReadersRegistrationController {
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
-        Scene scene0=new Scene(p);
+        Scene scene0=new Scene(p,600,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Librarian");
         window.setScene(scene0);

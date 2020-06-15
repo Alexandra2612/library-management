@@ -46,7 +46,7 @@ public class TableviewRefundController implements Initializable {
     @FXML
     private void goBack(ActionEvent actionEvent) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
-        Scene scene1=new Scene(p);
+        Scene scene1=new Scene(p,600,500);
         Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         window.setTitle("Reader");
         window.setScene(scene1);
@@ -85,7 +85,8 @@ public class TableviewRefundController implements Initializable {
 
     @FXML
     private void handleRefundaction() {
-        
+        refundMessageField.setText("");
+        refundMessageField1.setText("");
         int ok=0;
         ReaderUser r;
         r=UserService.getsomeUser(UserService.getConectedUser());
@@ -102,8 +103,8 @@ public class TableviewRefundController implements Initializable {
                     tableView.refresh();
                     UserService.persistReaders();
                     tableView.refresh();
-                    i.getBook().setPieces(i.getBook().getPieces()+1);
-                    BookService.persistBooks();
+                    BookService.addPiece(i.getBook().getTitle());
+                    tableView.refresh();
                     refundMessageField.setText("Book returned");
 
                 }
@@ -113,6 +114,7 @@ public class TableviewRefundController implements Initializable {
         } catch (BookNotOwned bookNotOwned) {
             refundMessageField.setText(bookNotOwned.getMessage())
 ;        }
+
         
 
 
@@ -130,6 +132,7 @@ public class TableviewRefundController implements Initializable {
         if(currentdate.after(currentDatePlus)) {
             long diff = currentdate.getTime() - currentDatePlus.getTime();
             refundMessageField1.setText("Time limit exceeded, cost:"+TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)+" lei");
+
         }
 
     }

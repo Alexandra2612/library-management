@@ -49,7 +49,7 @@ public class AddBooksController {
     @FXML
     private void goBack(ActionEvent actionEvent) throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
-        Scene scene2 = new Scene(p, 500, 500);
+        Scene scene2 = new Scene(p, 600, 500);
         Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         window.setTitle("Librarian");
         window.setScene(scene2);

@@ -15,7 +15,7 @@ public class Controller {
     @FXML
     private void handleRegistrationButton(ActionEvent event) throws IOException {
        Parent p=FXMLLoader.load(getClass().getResource("/fxml/librariansregistration.fxml"));
-       Scene scene2=new Scene(p,500,500);
+       Scene scene2=new Scene(p,600,500);
        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
        window.setTitle("Register");
        window.setScene(scene2);
@@ -25,7 +25,7 @@ public class Controller {
     private void handleLoginButton(ActionEvent event) throws IOException {
 
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
-        Scene scene0=new Scene(p);
+        Scene scene0=new Scene(p,600,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Login page");
         window.setScene(scene0);

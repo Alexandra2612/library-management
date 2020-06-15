@@ -48,12 +48,13 @@ public class TableViewBorrowController implements Initializable{
         bookColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Imprumut,String>, ObservableValue<String>>() {
             @Override
                 public ObservableValue<String> call(TableColumn.CellDataFeatures<Imprumut,String> c) {
-                return new SimpleStringProperty(c.getValue().getBook().getTitle()+" de "+c.getValue().getBook().getAuthor());
+                return new SimpleStringProperty(c.getValue().getBook().getTitle()+" by "+c.getValue().getBook().getAuthor());
             }
         });
         tableView.setItems(getImprumut());
     }
     public ObservableList<Imprumut> getImprumut(){
+        tableView.refresh();
         ArrayList<Imprumut> im=getSelectedUser().getListaimprumuturi();
         ObservableList<Imprumut> imp= FXCollections.observableArrayList();
         if(im==null)
@@ -65,7 +66,7 @@ public class TableViewBorrowController implements Initializable{
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_readersdata.fxml"));
-        Scene scene1=new Scene(p);
+        Scene scene1=new Scene(p,600,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Librarian");
         window.setScene(scene1);

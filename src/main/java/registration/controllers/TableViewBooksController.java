@@ -60,7 +60,7 @@ public class TableViewBooksController implements Initializable{
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
-        Scene scene1=new Scene(p);
+        Scene scene1=new Scene(p,600,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Reader");
         window.setScene(scene1);

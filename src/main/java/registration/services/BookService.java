@@ -40,7 +40,14 @@ public class BookService {
     public static void subtractPiece(String title){
         for (Book book : books) {
             if (Objects.equals(title, book.getTitle())&&book.getPieces()>0)
-                 book.setPieces(book.getPieces()-1);
+                book.setPieces(book.getPieces()-1);
+        }
+        persistBooks();
+    }
+    public static void addPiece(String title){
+        for (Book book : books) {
+            if (Objects.equals(title, book.getTitle())&&book.getPieces()>0)
+                book.setPieces(book.getPieces()+1);
         }
         persistBooks();
     }

@@ -43,7 +43,7 @@ public class TableViewReadersController implements Initializable{
             if(selectedUser!=null)
                 try{
                     Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_borrowdata.fxml"));
-                    Scene scene2=new Scene(p);
+                    Scene scene2=new Scene(p,600,500);
                     Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
                     window.setScene(scene2);
                     window.show();
@@ -56,7 +56,7 @@ public class TableViewReadersController implements Initializable{
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
-        Scene scene1=new Scene(p);
+        Scene scene1=new Scene(p,600,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Librarian");
         window.setScene(scene1);

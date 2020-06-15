@@ -35,7 +35,7 @@ public class LoginController {
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        Scene scene2 = new Scene(p, 500, 500);
+        Scene scene2 = new Scene(p, 600, 500);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setTitle("Welcome!");
         window.setScene(scene2);
@@ -52,7 +52,7 @@ public class LoginController {
             lib = UserService.checkLibrarian(UsernameField.getText(), PasswordField.getText());
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,600,500);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setTitle("Librarian");
             stage.setScene(scene);
@@ -72,7 +72,7 @@ public class LoginController {
             UserService.setConectedUser(UsernameField.getText());
             Parent root;
             root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,600,500);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setTitle("Reader");
             stage.setScene(scene);
