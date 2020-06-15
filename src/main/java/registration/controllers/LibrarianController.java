@@ -16,7 +16,7 @@ public class LibrarianController {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
         Scene scene4=new Scene(p,500,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Bun venit!");
+        window.setTitle("Welcome!");
         window.setScene(scene4);
         window.show();
     }
@@ -43,7 +43,7 @@ public class LibrarianController {
         Parent p = FXMLLoader.load(getClass().getResource("/fxml/add_books.fxml"));
         Scene scene2 = new Scene(p, 500, 500);
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        window.setTitle("Adauga carte!");
+        window.setTitle("Add a book");
         window.setScene(scene2);
         window.show();
     }

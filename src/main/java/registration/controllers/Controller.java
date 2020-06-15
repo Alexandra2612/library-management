@@ -27,7 +27,7 @@ public class Controller {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         Scene scene0=new Scene(p);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Pagina autentificare");
+        window.setTitle("Login page");
         window.setScene(scene0);
         window.show();
     }

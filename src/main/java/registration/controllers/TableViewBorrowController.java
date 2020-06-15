@@ -67,7 +67,7 @@ public class TableViewBorrowController implements Initializable{
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/tableview_readersdata.fxml"));
         Scene scene1=new Scene(p);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Pagina bibliotecar");
+        window.setTitle("Librarian");
         window.setScene(scene1);
         window.show();
     }

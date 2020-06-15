@@ -36,7 +36,7 @@ public class ReadersRegistrationController {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
         Scene scene0=new Scene(p);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Pagina bibliotecar");
+        window.setTitle("Librarian");
         window.setScene(scene0);
         window.show();
     }

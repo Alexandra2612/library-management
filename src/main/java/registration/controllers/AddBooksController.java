@@ -35,9 +35,9 @@ public class AddBooksController {
             try {
 
                 BookService.addBook(TitleField.getText(), AuthorField.getText(), Integer.parseInt(DurationField.getText()), Integer.parseInt(PiecesField.getText()));
-                ErrorField.setText("Carte adaugata cu succes!");
+                ErrorField.setText("Book added successfully!");
             } catch(java.lang.NumberFormatException ex){
-                ErrorField.setText("Adauga datele numerice");
+                ErrorField.setText("Add numeric data");
             } catch (TitleFieldEmptyException ex) {
                 ErrorField.setText(ex.getMessage());
             } catch (AuthorFieldEmptyException ex) {
@@ -53,7 +53,7 @@ public class AddBooksController {
         Parent p = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
         Scene scene2 = new Scene(p, 500, 500);
         Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
-        window.setTitle("Pagina bibliotecar");
+        window.setTitle("Librarian");
         window.setScene(scene2);
         window.show();
     }

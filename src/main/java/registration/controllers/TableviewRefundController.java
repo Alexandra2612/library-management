@@ -48,7 +48,7 @@ public class TableviewRefundController implements Initializable {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
         Scene scene1=new Scene(p);
         Stage window=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setTitle("Pagina cititor");
+        window.setTitle("Reader");
         window.setScene(scene1);
         window.show();
     }
@@ -104,7 +104,7 @@ public class TableviewRefundController implements Initializable {
                     tableView.refresh();
                     i.getBook().setPieces(i.getBook().getPieces()+1);
                     BookService.persistBooks();
-                    refundMessageField.setText("Carte restituita");
+                    refundMessageField.setText("Book returned");
 
                 }
         }catch(Exception ignored){}
@@ -129,7 +129,7 @@ public class TableviewRefundController implements Initializable {
 
         if(currentdate.after(currentDatePlus)) {
             long diff = currentdate.getTime() - currentDatePlus.getTime();
-            refundMessageField1.setText("Limita de timp depasita, cost:"+TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)+" lei");
+            refundMessageField1.setText("Time limit exceeded, cost:"+TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)+" lei");
         }
 
     }

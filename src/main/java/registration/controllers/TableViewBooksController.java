@@ -62,7 +62,7 @@ public class TableViewBooksController implements Initializable{
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
         Scene scene1=new Scene(p);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Pagina cititor");
+        window.setTitle("Reader");
         window.setScene(scene1);
         window.show();
     }

@@ -17,7 +17,7 @@ public class ReaderController {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
         Scene scene2=new Scene(p,500,500);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Bun venit!");
+        window.setTitle("Welcome!");
         window.setScene(scene2);
         window.show();
     }

@@ -14,7 +14,7 @@ public class Main extends Application {
         UserService.loadUsersFromFile();
         BookService.loadBooksFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        primaryStage.setTitle("Bun venit!");
+        primaryStage.setTitle("Welcome!");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }

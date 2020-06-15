@@ -47,7 +47,7 @@ public class LoginController {
         Parent p = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
         Scene scene2 = new Scene(p, 500, 500);
         Stage window = (Stage)((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Bun venit!");
+        window.setTitle("Welcome!");
         window.setScene(scene2);
         window.show();
     }
@@ -68,7 +68,7 @@ public class LoginController {
                     root = FXMLLoader.load(getClass().getResource("/fxml/librarian.fxml"));
                     Scene scene = new Scene(root);
                     Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-                    stage.setTitle("Pagina bibliotecar");
+                    stage.setTitle("Librarian");
                     stage.setScene(scene);
                     stage.show();
 
@@ -88,7 +88,7 @@ public class LoginController {
                         root = FXMLLoader.load(getClass().getResource("/fxml/reader.fxml"));
                         Scene scene = new Scene(root);
                         Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-                        stage.setTitle("Pagina cititor");
+                        stage.setTitle("Reader");
                         stage.setScene(scene);
                         stage.show();
 
