@@ -7,10 +7,10 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <Button mnemonicParsing="false" onAction="#handleRegistrationButton" prefHeight="26.0" prefWidth="221.0" text="Înregistarare bibliotecar" BorderPane.alignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#handleRegistrationButton" prefHeight="26.0" prefWidth="221.0" text="Librarian registration" BorderPane.alignment="CENTER" />
          </center>
          <top>
-            <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="80.0" prefWidth="206.0" text="Autentificare" BorderPane.alignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="80.0" prefWidth="206.0" text="Login" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
    </children>
