@@ -4,16 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="registration.controllers.TableViewBooksController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.TableViewBooksController">
     <children>
         <Label layoutX="14.0" layoutY="21.0" prefHeight="43.0" prefWidth="219.0" text="Available books" />
         <Button layoutX="483.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" prefHeight="43.0" prefWidth="94.0" text="Back" />
         <TableView fx:id="tableView" layoutX="8.0" layoutY="77.0" prefHeight="364.0" prefWidth="443.0">
             <columns>
-                <TableColumn fx:id="titleColumn" prefWidth="121.20000648498535" text="Title" />
-                <TableColumn fx:id="authorColumn" prefWidth="98.79998779296875" text="Author" />
-                <TableColumn fx:id="durationColumn" minWidth="0.0" prefWidth="114.20001220703125" text="Duration (days)" />
-                <TableColumn fx:id="piecesColumn" prefWidth="96.0" text="Available pieces" />
+                <TableColumn fx:id="titleColumn" prefWidth="99.00000190734863" text="Title" />
+                <TableColumn fx:id="authorColumn" prefWidth="89.5999984741211" text="Author" />
+                <TableColumn fx:id="durationColumn" minWidth="0.0" prefWidth="114.0" text="Duration (days)" />
+                <TableColumn fx:id="piecesColumn" prefWidth="142.79998779296875" text="Available pieces" />
             </columns>
         </TableView>
       <TextField fx:id="titleField" layoutX="459.0" layoutY="114.0" prefHeight="30.0" prefWidth="118.0" />

@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import registration.services.BookService;
-import registration.services.UserService;
+import library.services.BookService;
+import library.services.UserService;
 
 public class Main extends Application {
     @Override
