@@ -38,9 +38,7 @@ public class AddBooksController {
                 ErrorField.setText("Book added successfully!");
             } catch(java.lang.NumberFormatException ex){
                 ErrorField.setText("Add numeric data");
-            } catch (TitleFieldEmptyException ex) {
-                ErrorField.setText(ex.getMessage());
-            } catch (AuthorFieldEmptyException ex) {
+            } catch (TitleFieldEmptyException | AuthorFieldEmptyException ex) {
                 ErrorField.setText(ex.getMessage());
             } catch (BookAlreadyExistsException ex) {
                 ErrorField.setText(ex.getMessage());
