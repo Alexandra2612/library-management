@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import registration.services.BookService;
-import registration.services.UserService;
+import library.services.BookService;
+import library.services.UserService;
 
 public class Main extends Application {
     @Override
@@ -14,8 +14,8 @@ public class Main extends Application {
         UserService.loadUsersFromFile();
         BookService.loadBooksFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
-        primaryStage.setTitle("Bun venit!");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setTitle("Welcome!");
+        primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();
     }
 

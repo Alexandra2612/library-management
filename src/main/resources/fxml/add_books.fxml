@@ -3,19 +3,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="registration.controllers.AddBooksController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.AddBooksController">
    <children>
       <TextField fx:id="TitleField" layoutX="213.0" layoutY="95.0" prefHeight="26.0" prefWidth="192.0" />
       <TextField fx:id="AuthorField" layoutX="215.0" layoutY="146.0" prefHeight="26.0" prefWidth="192.0" />
       <TextField fx:id="DurationField" layoutX="215.0" layoutY="199.0" prefHeight="26.0" prefWidth="192.0" />
       <TextField fx:id="PiecesField" layoutX="215.0" layoutY="250.0" prefHeight="26.0" prefWidth="192.0" />
-      <Label layoutX="41.0" layoutY="94.0" prefHeight="26.0" prefWidth="147.0" text="Titlu carte" />
-      <Label layoutX="41.0" layoutY="150.0" prefHeight="18.0" prefWidth="155.0" text="Nume autor" />
-      <Label layoutX="41.0" layoutY="203.0" prefHeight="18.0" prefWidth="155.0" text="Durată împrumut *" />
-      <Label layoutX="37.0" layoutY="240.0" prefHeight="46.0" prefWidth="162.0" text="Număr exemplare *" />
-      <Button layoutX="389.0" layoutY="299.0" mnemonicParsing="false" onAction="#add_books_check" prefHeight="63.0" prefWidth="111.0" text="Adaugă" />
+      <Label layoutX="41.0" layoutY="94.0" prefHeight="26.0" prefWidth="147.0" text="Title" />
+      <Label layoutX="41.0" layoutY="150.0" prefHeight="18.0" prefWidth="155.0" text="Author " />
+      <Label layoutX="41.0" layoutY="203.0" prefHeight="18.0" prefWidth="155.0" text="Duration*" />
+      <Label layoutX="37.0" layoutY="240.0" prefHeight="46.0" prefWidth="162.0" text="Number of pieces" />
+      <Button layoutX="389.0" layoutY="299.0" mnemonicParsing="false" onAction="#add_books_check" prefHeight="63.0" prefWidth="111.0" text="Add" />
       <Label fx:id="ErrorField" layoutX="80.0" layoutY="307.0" prefHeight="46.0" prefWidth="238.0" textFill="#d51919" />
-      <Label layoutX="14.0" layoutY="353.0" prefHeight="35.0" prefWidth="173.0" text="* Date numerice" />
+      <Label layoutX="14.0" layoutY="353.0" prefHeight="35.0" prefWidth="173.0" text="*Numeric data" />
       <Button layoutX="448.0" layoutY="37.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
    </children>
 </AnchorPane>
