@@ -35,7 +35,7 @@ public class BookServiceTest {
 
     @BeforeClass
     public static void setupClass() throws Exception {
-        FileSystemService.APPLICATION_FOLDER = ".test-registration-example";
+        FileSystemService.APPLICATION_FOLDER = "test-ADGUB";
         FileSystemService.initApplicationHomeDirIfNeeded();
     }
 
@@ -44,14 +44,14 @@ public class BookServiceTest {
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath().toFile());
         if(BookService.getBooks()!=null) {
             BookService.removeBooks();
-            BookService.persistBooks();
+           // BookService.persistBooks();
         }
     }
 
     @Test
 
     public void testCopyDefaultFileIfNotExists() throws Exception {
-        UserService.loadUsersFromFile();
+        BookService.loadBooksFromFile();
         assertTrue(Files.exists(BookService.BOOKS_PATH));
     }
     @Test

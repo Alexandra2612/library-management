@@ -5,6 +5,7 @@ import library.model.ReaderUser;
 
 
 import org.apache.commons.io.FileUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,11 +36,11 @@ public class TableviewRefundControllerTest extends ApplicationTest {
 
     @BeforeClass
     public static void setupClass() throws Exception {
-        FileSystemService.APPLICATION_FOLDER = ".test-registration-example";
+        FileSystemService.APPLICATION_FOLDER = "test-ADGUB";
         FileSystemService.initApplicationHomeDirIfNeeded();
         //BookService.loadBooksFromFile();
         UserService.loadUsersFromFile();
-        UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
+
     }
 
     @Before
@@ -58,13 +59,13 @@ public class TableviewRefundControllerTest extends ApplicationTest {
     }
    @Test
     public void test_refund_action_ok() throws PasswordFieldEmptyException, UsernameFieldEmptyException, UsernameAlreadyExistsException {
-       //UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
+       UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
        UserService.setConectedUser("nume");
        Book b=new Book("a","a",4,6);
        BookService.books.add(b);
        BookService.persistBooks();
        Imprumut i=new Imprumut(b);
-       ReaderUser r=   UserService.getsomeUser(UserService.getConectedUser());
+       ReaderUser r=  UserService.getsomeUser(UserService.getConectedUser());
        r.adaugaImprumut(i);
        assertEquals(r.getListaimprumuturi().size(),1);
        controller.handleRefundaction();
@@ -73,7 +74,7 @@ public class TableviewRefundControllerTest extends ApplicationTest {
 
     @Test
     public void test_refund_action_book_not_owned() throws PasswordFieldEmptyException, UsernameFieldEmptyException, UsernameAlreadyExistsException {
-        //UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
+        UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
         UserService.setConectedUser("nume");
         Book b=new Book("ab","a",4,6);
         BookService.books.add(b);
@@ -87,7 +88,7 @@ public class TableviewRefundControllerTest extends ApplicationTest {
 
     @Test
     public void test_exceedingtime() throws PasswordFieldEmptyException, UsernameFieldEmptyException, UsernameAlreadyExistsException {
-        //UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
+        UserService.addReaderUser("nume","parola","dsggfs","Dsff","2585");
         UserService.setConectedUser("nume");
         Book b=new Book("ab","a",-2,6);
         BookService.books.add(b);

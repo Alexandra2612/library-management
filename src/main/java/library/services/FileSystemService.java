@@ -10,7 +10,7 @@ public class FileSystemService {
     public static final Path APPLICATION_HOME_PATH = Paths.get(USER_FOLDER, APPLICATION_FOLDER);
 
     public static Path getPathToFile(String... path) {
-        return APPLICATION_HOME_PATH.resolve(Paths.get("", path));
+        return getApplicationHomePath().resolve(Paths.get("", path));
     }
 
     public static Path getApplicationHomePath() {
