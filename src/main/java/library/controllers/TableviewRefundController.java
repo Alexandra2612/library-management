@@ -33,15 +33,14 @@ import library.services.UserService;
 
 public class TableviewRefundController implements Initializable {
     @FXML
-    private TextField refundField;
+    static TextField refundField;
     @FXML
-    private TableView<Imprumut> tableView;
-    @FXML private TableColumn<Imprumut,String> dateColumn;
-    @FXML private TableColumn<Imprumut,String> bookColumn;
+   static TableView<Imprumut> tableView;
+    @FXML TableColumn<Imprumut,String> dateColumn;
+    @FXML TableColumn<Imprumut,String> bookColumn;
     @FXML
-    private Label refundMessageField;
-    @FXML
-    private Label refundMessageField1;
+    static Label refundMessageField;
+    @FXML static Label refundMessageField1;
 
     @FXML
     private void goBack(ActionEvent actionEvent) throws IOException {
@@ -84,7 +83,7 @@ public class TableviewRefundController implements Initializable {
 
 
     @FXML
-    private void handleRefundaction() {
+    public static void handleRefundaction() {
         refundMessageField.setText("");
         refundMessageField1.setText("");
         int ok=0;
@@ -112,15 +111,12 @@ public class TableviewRefundController implements Initializable {
        if(ok==0) try {
             throw new BookNotOwned();
         } catch (BookNotOwned bookNotOwned) {
-            refundMessageField.setText(bookNotOwned.getMessage())
-;        }
-
-        
-
+            refundMessageField.setText(bookNotOwned.getMessage());
+       }
 
     }
 
-    private void exceedingtimecheck(Imprumut i) {
+    private static void exceedingtimecheck(Imprumut i) {
         Date currentdate=new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(i.getDate());
