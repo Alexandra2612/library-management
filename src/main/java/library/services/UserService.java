@@ -25,12 +25,12 @@ import java.util.Objects;
 
 public class UserService {
 
-    private static List<LibrarianUser> libUsers;
-    private static List<ReaderUser> readerUsers;
+    static List<LibrarianUser> libUsers;
+    static List<ReaderUser> readerUsers;
     private static String conectedUser;
 
-    private static final Path LIBRARIANS_PATH = FileSystemService.getPathToFile("config" ,"librarians.json");
-    private static final Path READERS_PATH = FileSystemService.getPathToFile( "config","readers.json");
+    static final Path LIBRARIANS_PATH = FileSystemService.getPathToFile("config" ,"librarians.json");
+    static final Path READERS_PATH = FileSystemService.getPathToFile( "config","readers.json");
 
     public static String getConectedUser() {
         return conectedUser;
@@ -69,7 +69,8 @@ public class UserService {
         libUsers.add(new LibrarianUser(username, encodePassword(username, password), fullname,address,phonenumber));
         persistLibrarians();
     }
-    public List<ReaderUser> getReaderUsers(){
+    public static List<LibrarianUser> getLibUsers(){return libUsers;}
+    public static List<ReaderUser> getReaderUsers(){
         return readerUsers;
     }
     public static void addReaderUser(String username, String password, String fullname, String address, String phonenumber) throws UsernameAlreadyExistsException,UsernameFieldEmptyException,PasswordFieldEmptyException{
@@ -161,7 +162,5 @@ public class UserService {
 
         }
         throw new UserDoesNotExist();
-
-
     }
 }

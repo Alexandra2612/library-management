@@ -15,9 +15,9 @@ import library.model.Book;
 import library.model.Imprumut;
 
 public class BookService {
-    private static List<Book> books;
+    public static List<Book> books;
 
-    private static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
+    static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
 
     public static void loadBooksFromFile() throws IOException {
         if (!Files.exists(BOOKS_PATH)) {
@@ -30,9 +30,7 @@ public class BookService {
     public static void addBook(String title, String author, int duration,int pieces) throws BookAlreadyExistsException, AuthorFieldEmptyException, TitleFieldEmptyException {
         checkTitleFieldIsNotEmpty(title);
         checkAuthorFieldIsNotEmpty(author);
-
         checkBookDoesNotAlreadyExist(title);
-
         books.add(new Book(title, author,duration,pieces));
         persistBooks();
     }

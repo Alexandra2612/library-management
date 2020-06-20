@@ -29,11 +29,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TableViewBooksController implements Initializable{
-    @FXML private TableView<Book> tableView;
-    @FXML private TableColumn<Book,String> titleColumn;
-    @FXML private TableColumn<Book,String> authorColumn;
-    @FXML private TableColumn<Book,Integer> durationColumn;
-    @FXML private TableColumn<Book,Integer> piecesColumn;
+    @FXML
+    TableView<Book> tableView;
+    @FXML
+    TableColumn<Book,String> titleColumn;
+    @FXML
+    TableColumn<Book,String> authorColumn;
+    @FXML
+    TableColumn<Book,Integer> durationColumn;
+    @FXML
+    TableColumn<Book,Integer> piecesColumn;
     @FXML
     public Text borrowMessage;
     @FXML

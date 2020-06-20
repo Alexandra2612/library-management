@@ -20,17 +20,17 @@ import java.io.IOException;
 public class LibrariansRegistrationController {
 
     @FXML
-    public Text registrationMessage;
+    Text registrationMessage;
     @FXML
-    public PasswordField passwordField;
+    PasswordField passwordField;
     @FXML
-    public TextField usernameField;
+    TextField usernameField;
     @FXML
-    public TextField fullnameField;
+    TextField fullnameField;
     @FXML
-    public TextField addressField;
+    TextField addressField;
     @FXML
-    public TextField phonenumberField;
+    TextField phonenumberField;
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         Parent p= FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
