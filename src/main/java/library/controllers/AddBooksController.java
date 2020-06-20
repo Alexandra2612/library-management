@@ -18,19 +18,19 @@ import library.services.BookService;
 
 public class AddBooksController {
     @FXML
-    private TextField TitleField;
+     TextField TitleField;
     @FXML
-    private TextField AuthorField;
+     TextField AuthorField;
     @FXML
-    private TextField DurationField;
+    TextField DurationField;
     @FXML
-    private TextField PiecesField;
+     TextField PiecesField;
     @FXML
-    private Label ErrorField;
+    Label ErrorField;
 
 
     @FXML
-    private void add_books_check() {
+    void add_books_check() {
 
             try {
 
