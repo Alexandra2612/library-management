@@ -4,12 +4,12 @@ package library.model;
 import java.util.ArrayList;
 
 public class ReaderUser {
-    private String username;
-    private String password;
-    private String fullname;
-    private String address;
-    private String phonenumber;
-    private ArrayList<Imprumut> listaimprumuturi;
+    String username;
+    String password;
+    String fullname;
+    String address;
+    String phonenumber;
+    ArrayList<Imprumut> listaimprumuturi;
 
     public ReaderUser(){}
     public ReaderUser( String username, String password, String fullname, String address, String phonenumber) {

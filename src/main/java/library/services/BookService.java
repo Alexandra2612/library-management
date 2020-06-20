@@ -30,9 +30,7 @@ public class BookService {
     public static void addBook(String title, String author, int duration,int pieces) throws BookAlreadyExistsException, AuthorFieldEmptyException, TitleFieldEmptyException {
         checkTitleFieldIsNotEmpty(title);
         checkAuthorFieldIsNotEmpty(author);
-
         checkBookDoesNotAlreadyExist(title);
-
         books.add(new Book(title, author,duration,pieces));
         persistBooks();
     }
@@ -103,8 +101,8 @@ public class BookService {
             throw new CouldNotWriteUsersException();
         }
     }
-
     public static void removeBooks() {
         books.removeAll(books);
     }
+
 }

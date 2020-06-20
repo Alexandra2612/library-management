@@ -30,7 +30,6 @@ public class Imprumut {
     public void setBook(Book book) {
         this.book = book;
     }
-
     @Override
     public String toString() {
         return "Imprumut{" +

@@ -19,17 +19,17 @@ import java.io.IOException;
 
 public class ReadersRegistrationController {
     @FXML
-    public Text registrationMessage2;
+    Text registrationMessage2;
     @FXML
-    public PasswordField passwordField2;
+    PasswordField passwordField2;
     @FXML
-    public TextField usernameField2;
+    TextField usernameField2;
     @FXML
-    public TextField fullnameField2;
+    TextField fullnameField2;
     @FXML
-    public TextField addressField2;
+    TextField addressField2;
     @FXML
-    public TextField phonenumberField2;
+    TextField phonenumberField2;
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {

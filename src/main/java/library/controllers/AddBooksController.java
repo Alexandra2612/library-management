@@ -42,7 +42,6 @@ public class AddBooksController {
                 ErrorField.setText(ex.getMessage());
             } catch (BookAlreadyExistsException ex) {
                 ErrorField.setText(ex.getMessage());
-
             }
         }
 
