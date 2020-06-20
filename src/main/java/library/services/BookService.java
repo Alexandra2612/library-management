@@ -15,9 +15,9 @@ import library.model.Book;
 import library.model.Imprumut;
 
 public class BookService {
-    private static List<Book> books;
+    public static List<Book> books;
 
-    private static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
+    public static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
 
     public static void loadBooksFromFile() throws IOException {
         if (!Files.exists(BOOKS_PATH)) {

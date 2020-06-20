@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 
 import javafx.scene.control.TextField;
-import library.model.Book;
 import library.services.BookService;
 import library.services.FileSystemService;
 
@@ -33,7 +32,10 @@ public class AddBooksControllerTest extends ApplicationTest {
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath().toFile());
 
         BookService.loadBooksFromFile();
-
+        if(BookService.getBooks()!=null) {
+            BookService.removeBooks();
+            BookService.persistBooks();
+        }
         controller = new AddBooksController();
         controller.AuthorField = new TextField();
         controller.TitleField = new TextField();
@@ -49,11 +51,8 @@ public class AddBooksControllerTest extends ApplicationTest {
     @Test
     public void test_Add_one_bookTest() {
         controller.add_books_check();
-
         assertEquals(1, BookService.getBooks().size());
         assertEquals("Book added successfully!", controller.ErrorField.getText());
-        BookService.removeBooks();
-        BookService.persistBooks();
 
     }
 
@@ -66,11 +65,6 @@ public class AddBooksControllerTest extends ApplicationTest {
         assertEquals("Add numeric data", controller.ErrorField.getText());
         assertEquals(0, BookService.getBooks().size());
         BookService.subtractPiece(this.titletest);
-        BookService.removeBooks();
-        BookService.persistBooks();
-
-
-
 
     }
     @Test
@@ -99,8 +93,7 @@ public class AddBooksControllerTest extends ApplicationTest {
         controller.add_books_check();
         assertEquals("Book already exist!", controller.ErrorField.getText());
         BookService.subtractPiece(this.titletest);
-        BookService.removeBooks();
-        BookService.persistBooks();
+
 
 
     }
