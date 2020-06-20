@@ -17,7 +17,7 @@ import library.model.Imprumut;
 public class BookService {
     public static List<Book> books;
 
-    static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
+    public static final Path BOOKS_PATH = FileSystemService.getPathToFile("config" ,"books.json");
 
     public static void loadBooksFromFile() throws IOException {
         if (!Files.exists(BOOKS_PATH)) {
@@ -48,7 +48,7 @@ public class BookService {
         }
         persistBooks();
     }
-    public List<Book> getBooks() {
+    public static List<Book> getBooks() {
         return books;
     }
 
@@ -100,6 +100,9 @@ public class BookService {
         } catch (IOException e) {
             throw new CouldNotWriteUsersException();
         }
+    }
+    public static void removeBooks() {
+        books.removeAll(books);
     }
 
 }

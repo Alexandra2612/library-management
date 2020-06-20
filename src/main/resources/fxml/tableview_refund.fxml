@@ -3,20 +3,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.TableviewRefundController">
-    <children>
-        <Label layoutX="14.0" layoutY="21.0" prefHeight="43.0" prefWidth="219.0" text="Borrowed books" />
-        <Button layoutX="494.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" prefHeight="43.0" prefWidth="82.0" text="Back" />
-        <TableView fx:id="tableView" layoutX="8.0" layoutY="77.0" prefHeight="390.0" prefWidth="410.0">
-            <columns>
-                <TableColumn fx:id="dateColumn" prefWidth="122.0" text="Date" />
-                <TableColumn fx:id="bookColumn" prefWidth="307.0" text="Book" />
-            </columns>
-        </TableView>
-      <Label layoutX="438.0" layoutY="77.0" prefHeight="25.0" prefWidth="138.0" text="Add a title" />
-      <TextField fx:id="refundField" layoutX="425.0" layoutY="116.0" prefHeight="55.0" prefWidth="148.0" />
-      <Button layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleRefundaction" prefHeight="43.0" prefWidth="148.0" text="Return book" />
-      <Label fx:id="refundMessageField" layoutX="426.0" layoutY="254.0" prefHeight="64.0" prefWidth="148.0" textFill="#0e0e0e" wrapText="true" />
-      <Label fx:id="refundMessageField1" layoutX="425.0" layoutY="326.0" prefHeight="75.0" prefWidth="148.0" textFill="#d50505" wrapText="true" />
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0"
+            prefWidth="653.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="library.controllers.TableviewRefundController">
+    <Label layoutX="14.0" layoutY="21.0" prefHeight="43.0" prefWidth="219.0" text="Borrowed books"/>
+    <Button layoutX="494.0" layoutY="21.0" mnemonicParsing="false" onAction="#goBack" prefHeight="43.0" prefWidth="82.0"
+            text="Back"/>
+    <TableView fx:id="tableView" layoutX="8.0" layoutY="77.0" prefHeight="390.0" prefWidth="410.0">
+        <columns>
+            <TableColumn fx:id="dateColumn" prefWidth="122.0" text="Date"/>
+            <TableColumn fx:id="bookColumn" prefWidth="307.0" text="Book"/>
+        </columns>
+    </TableView>
+    <Label layoutX="438.0" layoutY="77.0" prefHeight="25.0" prefWidth="138.0" text="Add a title"/>
+    <TextField fx:id="refundField" layoutX="425.0" layoutY="116.0" prefHeight="55.0" prefWidth="148.0"/>
+    <Button layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleRefundaction" prefHeight="43.0"
+            prefWidth="148.0" text="Return book"/>
+    <Label fx:id="refundMessageField" layoutX="426.0" layoutY="254.0" prefHeight="64.0" prefWidth="148.0"
+           textFill="#0e0e0e" wrapText="true"/>
+    <Label fx:id="refundMessageField1" layoutX="425.0" layoutY="326.0" prefHeight="75.0" prefWidth="148.0"
+           textFill="#d50505" wrapText="true"/>
 </AnchorPane>
