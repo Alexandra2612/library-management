@@ -50,7 +50,7 @@ public class BookService {
         }
         persistBooks();
     }
-    public List<Book> getBooks() {
+    public static List<Book> getBooks() {
         return books;
     }
 
@@ -104,4 +104,7 @@ public class BookService {
         }
     }
 
+    public static void removeBooks() {
+        books.removeAll(books);
+    }
 }
